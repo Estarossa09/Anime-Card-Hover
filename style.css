@@ -1,0 +1,122 @@
+:root {
+  --card-height: clamp(250px, 20vw, 300px);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background: url("images/bg.jpg");
+  background-size: cover;
+  position: relative;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  background-position: center;
+  margin: 10px;
+  height: var(--card-height);
+  aspect-ratio: 3/4;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: calc(var(--card-height) * 0.05);
+  box-shadow: inset 0 0 0 2px #000;
+}
+.card:first-child {
+  background: url("images/ichigo-01.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.card:nth-child(2) {
+  background: url("images/goku-01.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.card:last-child {
+  background: url("images/luffy-01.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.card:first-child:hover {
+  background-position: 0px 0px;
+  background-size: calc(var(--card-height) * 1.5);
+}
+.card:nth-child(2):hover {
+  background-position: 0px 0px;
+  background-size: calc(var(--card-height) * 1.5);
+}
+.card:last-child:hover {
+  background-position: 0px 0px;
+  background-size: calc(var(--card-height) * 1.25);
+}
+.wrapper {
+  background-color: #00000000;
+  transition: 1200ms ease-in-out;
+  backdrop-filter: blur(0px);
+  height: 100%;
+  width: 120%;
+  position: relative;
+}
+.card:hover .wrapper {
+  background-color: #0000003c;
+  backdrop-filter: blur(5px);
+}
+img {
+  position: absolute;
+  perspective: 200px;
+  position: relative;
+  height: calc(var(--card-height) * 0.3);
+  transition: 500ms ease-in-out;
+  bottom: -100%;
+  left: -50%;
+  pointer-events: none;
+}
+.card:nth-child(2) img {
+  left: -40%;
+}
+.card:last-child img {
+  left: -40%;
+}
+.card:hover img {
+  bottom: -10%;
+  height: calc(var(--card-height) * 1.2);
+}
+.card:first-child:hover img {
+  filter: drop-shadow(0px -20px 25px rgb(165, 53, 9));
+}
+.card:nth-child(2):hover img {
+  filter: drop-shadow(0px -20px 25px #fcea90);
+}
+.card:last-child:hover img {
+  filter: drop-shadow(0px -20px 25px rgb(67, 0, 0));
+  bottom: -20%;
+}
+.links {
+  top: 5%;
+  right: -15%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  transition: 500ms ease-in-out;
+}
+.links a {
+  text-decoration: none;
+}
+.links a i {
+  margin: 5px;
+  color: #ffffffb7;
+}
+.card:hover .links {
+  right: 20%;
+}
+.card:hover .links a i {
+  filter: drop-shadow(0px 0px 5px #83bdffd4);
+}
